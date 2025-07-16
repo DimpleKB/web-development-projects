@@ -1,0 +1,388 @@
+html(auth.html)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Auth Page</title>
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body>
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-left">
+        <div class="image-box"></div>
+      </div>
+      <div class="auth-right">
+        <div class="form-section">
+          <!-- Sign In Form -->
+          <form id="signInForm" class="auth-form active">
+            <h2>Sign In</h2>
+            <input type="email" placeholder="Email" required />
+            <input type="password" placeholder="Password" required />
+            <a href="#" class="forgot-password">Forgot password?</a>
+            <button type="submit" class="btn black">Sign In</button>
+            <p>Don’t have an account? <a href="#" id="toSignUp">Sign Up</a></p>
+          </form>
+
+          <!-- Sign Up Form -->
+          <form id="signUpForm" class="auth-form">
+            <h2>Sign Up</h2>
+            <input type="text" placeholder="Full Name" required />
+            <input type="email" placeholder="Email" required />
+            <input type="password" placeholder="Password" required />
+            <button type="submit" class="btn black">Sign Up</button>
+            <p>Already have an account? <a href="#" id="toSignIn">Sign In</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="auth.js"></script>
+</body>
+</html>
+
+
+
+css(auth.css)
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  
+  body {
+    background: #f4f4f4;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .auth-wrapper {
+    width: 90%;
+    max-width: 800px;
+  }
+  
+  .auth-card {
+    display: flex;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  
+  .auth-left, .auth-right {
+    flex: 1;
+    padding: 40px;
+  }
+  
+  .auth-left {
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image-box {
+    width: 150px;
+    height: 250px;
+    background: white;
+    border: 2px solid black;
+    border-radius: 12px;
+  }
+  
+  .auth-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .auth-form {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+  }
+  
+  .auth-form.active {
+    display: flex;
+  }
+  
+  .auth-form h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .auth-form input {
+    padding: 12px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .auth-form .btn {
+    padding: 12px;
+    border: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 12px;
+  }
+  
+  .black {
+    background: black;
+    color: white;
+  }
+  
+  .forgot-password {
+    font-size: 14px;
+    margin-bottom: 12px;
+    text-align: right;
+    color: #555;
+    text-decoration: none;
+  }
+  
+  .auth-form p {
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .auth-form p a {
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+
+javascript(auth.js)
+
+
+const signInForm = document.getElementById('signInForm');
+const signUpForm = document.getElementById('signUpForm');
+const toSignUp = document.getElementById('toSignUp');
+const toSignIn = document.getElementById('toSignIn');
+
+toSignUp.addEventListener('click', (e) => {
+  e.preventDefault();
+  signInForm.classList.remove('active');
+  signUpForm.classList.add('active');
+});
+
+toSignIn.addEventListener('click', (e) => {
+  e.preventDefault();
+  signUpForm.classList.remove('active');
+  signInForm.classList.add('active');
+});
+
+// Redirect to home page on Sign In/Up submit
+signInForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  window.location.href = "home.html"; // Redirect to your home page
+});
+
+signUpForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  window.location.href = "home.html"; // Redirect to your home page
+});
+
+
+home page(home.html)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HealthTrack Home</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f8f9fc;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 24px;
+      margin-right: 8px;
+    }
+
+    .nav-links a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .search-box {
+      margin: 3rem auto;
+      width: 90%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .search-box input, .search-box select, .search-box button {
+      padding: 12px;
+      font-size: 16px;
+      margin: 8px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .search-box button {
+      background: #a38fe7;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .search-box input {
+      width: 100%;
+    }
+
+    .dropdowns {
+      display: flex;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <img src="logo11.jpg" alt="Logo">
+      HealthTrack
+    </div>
+    <div class="nav-links">
+      <a href="#">Deficiencies</a>
+      <a href="#">Symptoms</a>
+      <a href="#">Foods</a>
+      <a href="#">Insights</a>
+    </div>
+  </nav>
+
+  <div class="search-box">
+    <input type="text" placeholder="Search..." />
+    <div class="dropdowns">
+      <select><option>Category</option></select>
+      <select><option>Category</option></select>
+      <button>Search</button>
+    </div>
+  </div>
+</body>
+</html>
+
+
+image(logo11.jpg)
+
+
+database(def.sql)
+
+-- Create a table
+CREATE TABLE deficiencies (
+  deficiency_id INT PRIMARY KEY,
+  deficiency TEXT,
+  short_term_symptoms TEXT,
+  long_term_symptoms TEXT
+);
+
+-- Insert sample data
+INSERT INTO deficiencies (deficiency_id,deficiency,short_term_symptoms,long_term_symptoms) VALUES
+(1, 'Vitamin D', 'Fatigue, muscle weakness, bone pain, mood changes', 'Osteoporosis, increased fracture risk, chronic pain, weakened immunity'),
+(2, 'Vitamin B12', 'Fatigue, neuropathy, mouth ulcers, disturbed vision', 'Pernicious anemia, nerve damage, cognitive decline'),
+(3, 'Calcium', 'Muscle cramps, numbness in fingers, weak nails', 'Osteoporosis, abnormal heart rhythms, brittle bones'),
+(4, 'Iron', 'Fatigue, weakness, pale skin, dizziness', 'Severe anemia, heart problems, developmental delays in children'),
+(5, 'Magnesium', 'Fatigue, muscle cramps, nausea, tingling', 'Seizures, abnormal heart rhythms, chronic weakness'),
+(6, 'Vitamin C', 'Bleeding gums, easy bruising, joint pain', 'Scurvy, poor wound healing, anemia'),
+(7, 'Zinc', 'Poor appetite, hair loss, delayed wound healing', 'Impaired immune function, growth retardation'),
+(8, 'Iodine', 'Fatigue, weight gain, dry skin, constipation', 'Goiter, hypothyroidism, developmental delays in children'),
+(9, 'Vitamin A', 'Night blindness, poor vision, dry skin', 'Permanent blindness, increased infection risk'),
+(10, 'Folate', 'Low energy, poor immune function, mood changes', 'Megaloblastic anemia, neural tube defects in infants'),
+(11, 'Vitamin E', 'Muscle weakness, vision problems, numbness', 'Nerve damage, impaired immune function'),
+(12, 'Vitamin K', 'Easy bruising, excessive bleeding, nosebleeds', 'Severe bleeding, osteoporosis'),
+(13, 'Vitamin B1', 'Fatigue, irritability, poor memory, muscle weakness', 'Beriberi, Wernicke-Korsakoff syndrome, nerve damage'),
+(14, 'Vitamin B2', 'Cracked lips, sore throat, mouth ulcers, inflamed tongue', 'Skin disorders, anemia, cataracts'),
+(15, 'Vitamin B3', 'Fatigue, indigestion, skin rash', 'Pellagra (dermatitis, diarrhea, dementia), mental confusion'),
+(16, 'Vitamin B5', 'Fatigue, irritability, numbness, muscle cramps', 'Neurological symptoms, burning feet syndrome'),
+(17, 'Vitamin B6', 'Skin rashes, cracked lips, sore tongue, confusion', 'Anemia, depression, weakened immune function'),
+(18, 'Vitamin B7', 'Hair loss, skin rash, brittle nails', 'Neurological symptoms, depression, lethargy'),
+(19, 'Potassium', 'Muscle weakness, cramps, fatigue', 'Irregular heartbeat, paralysis, respiratory failure'),
+(20, 'Omega 3', 'Dry skin, fatigue, poor concentration', 'Heart disease, cognitive decline, inflammation'),
+(21, 'Fiber', 'Constipation, irregular bowel movements', 'Increased risk of colon disease, heart disease, diabetes'),
+(22, 'Copper', 'Fatigue, weakness, frequent infections', 'Anemia, bone abnormalities, neurological issues'),
+(23, 'Manganese', 'Poor bone growth, skin problems, mood changes', 'Skeletal defects, fertility issues, impaired metabolism'),
+(24, 'Phosphorus', 'Weakness, bone pain, irregular breathing', 'Bone disease, muscle weakness, impaired growth'),
+(25, 'Chromium', 'Fatigue, anxiety, poor glucose control', 'Impaired glucose tolerance, increased diabetes risk'),
+(26, 'Selenium', 'Fatigue, muscle weakness, hair loss', 'Heart disease, infertility, weakened immunity'),
+(27, 'Biotin', 'Hair thinning, skin rash, brittle nails', 'Neurological symptoms, depression, hallucinations');
+
+
+
+-- Query data
+SELECT * FROM deficiencies;
+--SELECT 
+   -- '• ' + deficiency + CHAR(13) + CHAR(10) +
+    --'  - Short term symptoms: ' + short_term_symptoms + CHAR(13) + CHAR(10) +
+    --'  - Long term symptoms if not treated: ' + long_term_symptoms AS Deficiency_BulletPoints
+--FROM 
+    --deficiencies;
+
+database(food.sql)
+
+
+CREATE TABLE deficiency_natural_foods (
+    deficiency_id INT PRIMARY KEY,
+    deficiency VARCHAR(50) NOT NULL,
+    recommended_natural_foods TEXT NOT NULL
+);
+
+INSERT INTO deficiency_natural_foods (deficiency_id, deficiency, recommended_natural_foods) VALUES
+(1, 'Vitamin D', 'Fatty fish (salmon, sardines, herring, mackerel, tuna), cod liver oil, egg yolks, mushrooms exposed to UV light, beef liver, fortified foods'),
+(2, 'Vitamin B12', 'Meat (beef, chicken, pork), fish (salmon, trout, tuna), shellfish (clams, oysters), dairy products (milk, cheese, yogurt), eggs'),
+(3, 'Calcium', 'Dairy products (milk, cheese, yogurt), leafy greens (kale, broccoli, bok choy), almonds, sardines (with bones), tofu, fortified plant milks'),
+(4, 'Iron', 'Red meat, poultry, seafood (especially shellfish), beans, lentils, spinach, tofu, pumpkin seeds, quinoa, fortified cereals'),
+(5, 'Magnesium', 'Leafy greens (spinach, Swiss chard), nuts and seeds (almonds, cashews, pumpkin seeds, chia seeds), legumes, whole grains, avocados, bananas, tofu, fatty fish'),
+(6, 'Vitamin C', 'Citrus fruits (oranges, lemons, grapefruits), strawberries, kiwi, bell peppers, broccoli, Brussels sprouts, tomatoes'),
+(7, 'Zinc', 'Shellfish (oysters, crab), red meat, poultry, beans, nuts, whole grains, dairy products, seeds (pumpkin, sesame)'),
+(8, 'Iodine', 'Seaweed, seafood (cod, shrimp, tuna), dairy products, eggs, iodized salt'),
+(9, 'Vitamin A', 'Liver, fish oils, dairy products, eggs, orange/yellow vegetables (carrots, sweet potatoes, pumpkin), dark leafy greens (spinach, kale)'),
+(10, 'Folate', 'Leafy greens (spinach, kale, romaine lettuce), legumes (beans, lentils), citrus fruits, avocados, asparagus, broccoli, fortified grains'),
+(11, 'Vitamin E', 'Wheat germ oil, sunflower oil, safflower oil, almonds, sunflower seeds, hazelnuts, peanuts, pine nuts, avocados, spinach, red bell peppers, broccoli, butternut squash, plant oils, fortified cereals'),
+(12, 'Vitamin K', 'Leafy green vegetables (kale, spinach, collard greens, Swiss chard), broccoli, Brussels sprouts, cabbage, fish, meat, dairy products'),
+(13, 'Vitamin B1', 'Whole grains, pork, fish, beans, nuts, seeds, peas, fortified cereals'),
+(14, 'Vitamin B2', 'Eggs, organ meats (liver, kidney), lean meats, milk, green vegetables, fortified cereals, almonds'),
+(15, 'Vitamin B3', 'Poultry, beef, fish, whole wheat bread, peanuts, legumes, seeds, fortified cereals'),
+(16, 'Vitamin B5', 'Chicken, beef, potatoes, oats, tomatoes, whole grains, egg yolks, broccoli, mushrooms, avocados'),
+(17, 'Vitamin B6', 'Fish (salmon, tuna), poultry (chicken, turkey), potatoes, bananas, chickpeas, fortified cereals, nuts, spinach'),
+(18, 'Vitamin B7', 'Egg yolks, nuts, seeds, salmon, avocados, sweet potatoes, cauliflower, whole grains, bananas'),
+(19, 'Potassium', 'Bananas, plantains, leafy greens, beans, potatoes, soy, squash, mushrooms, tomatoes, cantaloupe, raisins, nuts, fish, spinach'),
+(20, 'Omega 3', 'Fatty fish (salmon, mackerel, sardines, anchovies, herring, trout, tuna), cod liver oil, oysters, flaxseeds, chia seeds, walnuts, hemp seeds, seaweed, soybeans, edamame'),
+(21, 'Fiber', 'Legumes (beans, lentils, peas), whole grains, bran, seeds, apples, strawberries, carrots, raspberries, colorful fruits and vegetables'),
+(22, 'Copper', 'Shellfish (oysters, crab), organ meats (liver), nuts (cashews, almonds), seeds (sunflower, sesame), whole grains, beans, dark chocolate, potatoes, mushrooms, avocados'),
+(23, 'Manganese', 'Whole grains, nuts, leafy green vegetables, tea, pineapple, sweet potatoes, beans, brown rice, oats'),
+(24, 'Phosphorus', 'Meat, poultry, fish, dairy products, eggs, nuts, seeds, beans, whole grains'),
+(25, 'Chromium', 'Broccoli, grape juice, potatoes, whole grains, beef, poultry, apples, bananas, green beans, nuts'),
+(26, 'Selenium', 'Brazil nuts, seafood (tuna, sardines, shrimp), meats, eggs, sunflower seeds, mushrooms, whole grains, dairy products'),
+(27, 'Biotin', 'Egg yolks, nuts, seeds, salmon, avocados, sweet potatoes, cauliflower, whole grains, bananas');
+
+select *from deficiency_natural_foods;
