@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+body,html{
+    height:100%;
+    background: url('https://media.istockphoto.com/id/1135911226/photo/abstract-blue-background-with-lines-illustration-technology-design.jpg?b=1&s=170667a&w=0&k=20&c=kfMlQJYrtl53l6UB7ICipTL5vUes9TihShAuLuuINKU=') no-repeat center center/cover;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100%;
+    backdrop-filter: blur(5px);
+}
+.login-card{
+    /* height:300px; */
+    /* background-color: black; */
+    padding: 40px 30px;
+    width:320px;
+    border-radius: 15px;
+    border-color: black;
+    color:aliceblue;
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border:1px solid rgba(122, 22, 22, 0.037);
+    backdrop-filter: blur(20px);
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.login-card h2{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.login-card p{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+.login-card input{
+    width:100%;
+    padding: 12px;
+    margin:10px 0;
+    border:none;
+    border-radius: 8px;
+    background-color:rgba(255, 255, 255, 0.2);
+    color: aliceblue;
+}
+.login-card input::placeholder{
+    color: #eee;
+}
+.login-card input:focus {
+  outline: none;
+  border: 2px solid #4f46e5;
+  box-shadow: 0 0 8px rgba(79, 70, 229, 0.6);
+}
+
+.login-card button{
+    width:100%;
+    padding: 12px;
+    border:none;
+    background-color: #ffffff;
+    color: black;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition:background-color 0.3s ease;
+}
+.login-card button:hover{
+    background-color: #4f46e5;
+    color: white;
+}
+.login-card .signup{
+    margin-top:15px;
+    font-size: 0.85rem;
+    text-align: center;
+}
+.login-card .signup a{
+    color:#fff;
+    text-decoration: underline;
+}
