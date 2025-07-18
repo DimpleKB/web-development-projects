@@ -1,0 +1,130 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.site-header{
+    /* position:fixed; */
+    background-color:rgb(238, 209, 171);
+    color:black;
+    padding: 1rem 0;
+    box-shadow: 02px 4px rgba(0, 0, 0, 0.1);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+.container{
+    max-width: 1200px;
+    margin:0 auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: black;
+    font-family:cursive;
+}
+.navbar .nav-links{
+    color: black;
+    font-family: serif;
+    list-style: none;
+    display: flex;
+    gap:1.5rem;
+    cursor: pointer;
+}
+.navbar .nav-links .link a{
+    color:black;
+    text-decoration: underline;
+}
+.navbar .nav-links li:hover{
+    color:rgb(133, 133, 247);
+}
+.navbar .nav-links li a:hover{
+    color:rgb(133, 133, 247);
+}
+@media (max-width:768px)
+{
+    .container{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar .nav-links{
+        flex-direction: column;
+        width:100%;
+        gap:1rem;
+        margin-top: 1rem;
+    }
+}
+body{
+     background-color:antiquewhite;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:40px;
+    margin-bottom: 20px;
+    padding: 30px;
+    font-family:sans-serif;
+
+}
+.options .list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:3.0rem;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight:initial;
+    color: #5e5e5e;
+    list-style: none;
+    padding-bottom: 100px ;
+    cursor: pointer;
+}
+.options .list .highlight{
+    color:black;
+}
+.options .list li:hover{
+    color:rgb(34, 34, 198);
+}
+.mainbody{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-left:150px;
+    margin-right:150px;
+}
+.mainbody .item{
+    background-color: aliceblue;
+    width: 350px;
+    height: 550px;
+    border-radius: 10%;
+    border: 2px solid black;
+    margin-bottom: 30px;
+}
+.mainbody .item .img1{
+    width: 350px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 10%;
+    margin-bottom: 15px;
+    border: 2px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.mainbody .item h3{
+    
+    padding-bottom: 3px;
+    text-align: center;
+}
+.mainbody .item .price{
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 20px;
+    text-align: end;
+} 
