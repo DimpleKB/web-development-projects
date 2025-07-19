@@ -1,0 +1,257 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to bottom right, #f0f4ff, #ffffff);
+}
+.site-header{
+    background-color: white;
+    color:black;
+    box-shadow:0.2px 0.2px black;
+    z-index:1000;
+    top:0;
+    position: sticky;
+    padding: 1rem 0;
+}
+.container{
+    max-width:1700px;
+    margin: auto;
+    padding: 1rem 2rem;
+    display: flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar{
+    padding-top:10px;
+    display: flex;
+    align-items: center;
+}
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.logo{
+    width: 60px;
+    height: auto;
+    vertical-align: middle;
+}
+.nav-links{
+    display: flex;
+    gap:2.5rem;
+    list-style: none;
+}
+.nav-links li{
+    color: rgb(13, 13, 13);
+    font-size: 20px;
+    cursor: pointer;
+}
+.nav-links li:hover{
+    color:blue;
+}
+.nav{
+    font-size: 20px;
+    padding-left: 500px;
+    display: flex;
+    gap:0.5rem;
+    cursor: pointer;
+}
+.nav p{
+    padding-top: 10px;
+}
+.nav p:hover{
+    color: blue;
+}
+.nav .contact,.contact{
+    height:50px;
+    width:150px;
+    border-radius: 10px;
+    background-color: white;
+    color:black;
+    font-size: 18px;
+}
+.nav .contact:hover,.contact:hover{
+    background-color:  #f5f5f5;
+    color:black;
+    border: 1px solid #1abcfe;
+}
+.nav .started,.started{
+    height:50px;
+    width:200px;
+    border-radius: 10px;
+    background-color: black;
+    color:white;
+    font-size: 18px;
+}
+.nav .started:hover,.started:hover{
+    background-color: #1abcfe;
+    color:white;
+}
+.detail{
+    display: inline-block;
+    vertical-align: top;
+    width:48%;
+    padding-top: 70px;
+    padding-left: 50px;
+}
+.text-content{
+    text-align: left;
+}
+.detail .big{
+    font-size: 100px;
+    font-weight:500;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.detail .small{
+    padding-top: 20px;
+    font-size: 30px;
+    padding-bottom: 50px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.started{
+    margin-right: 20px;
+}
+.image-content{
+    flex:1;
+    text-align: center;
+}
+.image-content .img1{
+    max-width: 100%;
+    height: 500px;
+    width:1000px;
+    object-fit: contain;
+}
+.features {
+    background-color: #ffffff;
+    padding: 80px 50px;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.feature {
+    background-color: var(--gray);
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.feature h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.testimonials {
+    background-color: #fafafa;
+    padding: 80px 50px;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.logo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.logo-grid img {
+    height: 80px;
+    max-width: 320px;
+}
+.cta {
+    background-color: var(--primary);
+    color: black;
+    text-align: center;
+    padding: 80px 50px;
+    border-radius: 0;
+}
+
+.cta h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.cta .started {
+    background-color: white;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.cta .started:hover {
+    background-color: black;
+    color: white;
+}
+.footer {
+    background-color: #111;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+}
+
+.footer p {
+    font-size: 14px;
+    opacity: 0.7;
+}
+@media (max-width: 768px) {
+    .feature-grid, .logo-grid {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav, .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .detail {
+        width: 100%;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .image-content .img1 {
+        width: 90%;
+        height: auto;
+    }
+}
